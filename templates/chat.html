@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>ShabdMitra</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+  <link href="static/img/hero-img.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="/">ShabdMitra</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+              <li><a class="nav-link scrollto" href="#about">About</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header><!-- End Header -->
+      <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center w-100">
+          <form style="color:#E96D88" class="btn btn-orange btn-rounded-corner" class="icon-on-button" class="ion-ios-arrow-thin-right" method="post">
+              <div id="chatbox" style="overflow:auto;max-height: 275px;border-radius: 15px;">
+                  <div class="col-md-8 ml-auto mr-auto">
+                      <p class="botText"><span>Send the first message!<br></span></p>
+                  </div>
+              </div>
+              <div id="userInput" class="row">
+                <div class="col-md-10">
+
+                  <!-- <form action="/url" method="GET"> -->
+                    <!-- <div style="text-align: right;"> -->
+                      <input id="text" type="text" name="msg" placeholder="Message" class="form-control"> 
+                      <!-- <label>aaaaa</label> -->
+                      <!-- </div>
+                  </form> -->
+                  <button style="margin: 10px" type="submit" id="send" class="btn btn-warning">Send Message</button>
+                      <button style="margin: 10px" onclick="location.href = 'vocab';" type="button" id="vocab" class="btn btn-warning">Vocab Quiz</button>
+                      <button style="margin: 10px" onclick="location.href = 'errors';" type="button" id="vocab" class="btn btn-warning">Check for Errors</button>
+                  </div>
+                </div>  
+          </form>
+        </div>
+    </div>
+  </div>
+
+</section><!-- End Hero -->
+
+
+    <script>
+      $(document).ready(function() {
+          $("form").on("submit", function(event) {
+              var rawText = $("#text").val();
+              var userHtml = '<p class="userText" style="color:white;"><span>' + rawText + "</span></p>";
+              $("#text").val("");
+              $("#chatbox").append(userHtml);
+              document.getElementById("userInput").scrollIntoView({
+                  block: "start",
+                  behavior: "smooth",
+              });
+              $.ajax({
+                  data: {
+                      msg: rawText,
+                  },
+                  type: "POST",
+                  url: "/get",
+              }).done(function(data) {
+                  var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                  $("#chatbox").append($.parseHTML(botHtml));
+                  document.getElementById("userInput").scrollIntoView({
+                      block: "start",
+                      behavior: "smooth",
+                  });
+              });
+              event.preventDefault();
+          });
+      });
+  </script>
+
+  </main><!-- End #main -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="static/vendor/aos/aos.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Template Main JS File -->
+<script src="static/js/main.js"></script>
+
+</body>
+
+</html>
+</html>
