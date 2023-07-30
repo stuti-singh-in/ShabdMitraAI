@@ -1,0 +1,987 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Montserrat:wght@700&display=swap');
+
+/* Setting default font and text color for body, h3, and p elements */
+body, h3, p {
+  font-family: "Inconsolata", monospace;
+  color: #000000;
+}
+
+/* Styling links */
+a {
+  color: #fcf9ea;
+  text-decoration: none;
+}
+
+/* Styling links on hover */
+a:hover {
+  color: #fcf9ea;
+  text-decoration: none;
+}
+
+/* Setting font-family for headings h1, h2, h4, h5, h6 */
+h1, h2, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Styling h1 elements */
+h1 {
+  color: #E96D88;
+  /* Applying a gradient background to the h1 text */
+  background-image: -webkit-linear-gradient(45deg, #E96D88 31%, #FAD57E 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+
+/* Styling the back to top button */
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #E96D88;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+/* Styling the back to top button icon */
+.back-to-top i {
+  font-size: 28px;
+  color: #FFF0E5;
+  line-height: 0;
+}
+
+/* Changing styles of the back to top button on hover */
+.back-to-top:hover {
+  background: #FFD7D2;
+  color: #FFF0E5;
+}
+
+/* Applying styles to the back to top button when active */
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ... (Continued) */
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+
+/* Styling the preloader container */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #32746D; /* Background color for the preloader */
+    color: #32746D; /* Text color for the preloader */
+  }
+  
+  /* Styling the preloader spinner element */
+  #preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px); /* Positioning the spinner at the center of the screen vertically */
+    left: calc(50% - 30px); /* Positioning the spinner at the center of the screen horizontally */
+    border: 6px solid #ffffff; /* Styling the border of the spinner */
+    border-top-color: #e7e4fe; /* Setting the color of the top border of the spinner */
+    border-radius: 50%; /* Creating a circular shape for the spinner */
+    width: 60px; /* Setting the width of the spinner */
+    height: 60px; /* Setting the height of the spinner */
+    -webkit-animation: animate-preloader 1s linear infinite; /* Applying animation to rotate the spinner */
+    animation: animate-preloader 1s linear infinite; /* Applying animation to rotate the spinner */
+  }
+  
+  /* Animation keyframes for the preloader spinner */
+  @-webkit-keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg); /* Starting position of the spinner rotation */
+    }
+  
+    100% {
+      transform: rotate(360deg); /* Ending position of the spinner rotation (one full rotation) */
+    }
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg); /* Starting position of the spinner rotation */
+    }
+  
+    100% {
+      transform: rotate(360deg); /* Ending position of the spinner rotation (one full rotation) */
+    }
+  }
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+
+/* Applying styles to elements with the attribute "data-aos-delay" when the screen width is 768 pixels or less (mobile devices) */
+@media screen and (max-width: 768px) {
+    [data-aos-delay] {
+      transition-delay: 0 !important; /* Setting the transition delay to 0 to disable any animation delay */
+    }
+  }
+  
+  /*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+  
+  /* Styling the header element */
+  #header {
+    transition: all 0.5s; /* Applying a smooth transition effect to all style changes in the header */
+    z-index: 997; /* Setting the z-index of the header to control its stacking order */
+    padding: 20px 0; /* Adding padding to the top and bottom of the header */
+  }
+  
+  /* Styling the header when it has the class "header-scrolled" or "header-inner-pages" */
+  #header.header-scrolled,
+  #header.header-inner-pages {
+    background: rgb(255, 215, 210, 0.8); /* Applying a semi-transparent background color to the header when scrolled or on inner pages */
+    padding: 12px 0; /* Adjusting the padding of the header when scrolled or on inner pages */
+  }
+  
+  /* Styling the logo element within the header */
+  #header .logo {
+    font-size: 32px; /* Setting the font size of the logo */
+    margin: 0;
+    padding: 0;
+    line-height: 1; /* Setting the line-height of the logo */
+    font-weight: 400; /* Setting the font weight of the logo */
+    letter-spacing: 2px; /* Adding letter spacing to the logo */
+    text-transform: uppercase; /* Transforming the text of the logo to uppercase */
+  }
+  
+  /* Styling the links within the logo element */
+  #header .logo a {
+    color: #fcf9ea; /* Setting the color of the links within the logo */
+  }
+  
+  /* Styling the logo image within the logo element */
+  #header .logo img {
+    max-height: 40px; /* Setting the maximum height of the logo image */
+  }
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+/**
+ * Desktop Navigation 
+ */
+
+/* Styling the navbar element */
+.navbar {
+    padding: 0; /* Removing padding from the navbar */
+  }
+  
+  /* Styling the unordered list (ul) inside the navbar */
+  .navbar ul {
+    margin: 0; /* Removing margin from the ul */
+    padding: 0; /* Removing padding from the ul */
+    display: flex; /* Displaying the list items horizontally (in a row) */
+    list-style: none; /* Removing the default bullet points from the list items */
+    align-items: center; /* Aligning the items vertically within the navbar */
+  }
+  
+  /* Styling the list items (li) inside the navbar */
+  .navbar li {
+    position: relative; /* Setting the position of the list items to relative */
+  }
+  
+  /* Styling the immediate list items inside the navbar */
+  .navbar>ul>li {
+    padding: 10px 0 10px 24px; /* Adding padding to the top, bottom, and left of the list items */
+  }
+  
+  /* Styling the anchor links (a) inside the navbar */
+  .navbar a,
+  .navbar a:focus {
+    display: flex; /* Displaying the links as flex containers */
+    align-items: center; /* Aligning the elements vertically within the links */
+    justify-content: space-between; /* Distributing the elements evenly within the links */
+    padding: 0 3px; /* Adding padding to the left and right of the links */
+    font-family: "Poppins", sans-serif; /* Setting the font family for the links */
+    font-size: 15px; /* Setting the font size of the links */
+    font-weight: 600; /* Setting the font weight of the links */
+    color: rgba(255, 255, 255, 0.7); /* Setting the color of the links with some transparency */
+    white-space: nowrap; /* Preventing the links from wrapping to the next line */
+    transition: 0.3s; /* Applying a smooth transition effect to the links */
+    position: relative; /* Setting the position of the links to relative */
+  }
+  
+  /* Styling the icons (i) inside the anchor links */
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px; /* Setting the font size of the icons */
+    line-height: 0; /* Removing the line height of the icons */
+    margin-left: 5px; /* Adding margin to the left of the icons */
+  }
+  
+  /* Styling the pseudo-element "before" for the anchor links */
+  .navbar>ul>li>a:before {
+    content: ""; /* Adding content to the pseudo-element */
+    position: absolute; /* Setting the position of the pseudo-element to absolute */
+    width: 100%; /* Setting the width of the pseudo-element to 100% */
+    height: 2px; /* Setting the height of the pseudo-element */
+    bottom: -5px; /* Positioning the pseudo-element below the links */
+    left: 0; /* Positioning the pseudo-element at the left edge of the links */
+    background-color: #fcf9ea; /* Setting the background color of the pseudo-element */
+    visibility: hidden; /* Hiding the pseudo-element */
+    width: 0px; /* Setting the width of the pseudo-element to 0 initially */
+    transition: all 0.3s ease-in-out 0s; /* Applying a smooth transition effect to the pseudo-element */
+  }
+  
+  /* Styling the anchor links when hovered, or when the list item is hovered */
+  .navbar a:hover:before,
+  .navbar li:hover>a:before,
+  .navbar .active:before {
+    visibility: visible; /* Making the pseudo-element visible when the links are hovered or the list item is hovered */
+    width: 100%; /* Setting the width of the pseudo-element to 100% when hovered */
+  }
+  
+  /* Styling the anchor links when hovered, or when they have the "active" class, or when the list item is hovered */
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #fcf9ea; /* Changing the color of the links when hovered or when active */
+  }
+  
+  /* Styling the "Get Started" button within the navbar */
+  .navbar .getstarted,
+  .navbar .getstarted:focus {
+    padding: 8px 25px; /* Adding padding to the top and bottom, and left and right of the "Get Started" button */
+    margin-left: 30px; /* Adding left margin to the "Get Started" button */
+    border-radius: 5px; /* Adding border radius to the "Get Started" button */
+    color: #fcf9ea; /* Setting the color of the "Get Started" button */
+    transition: 0.3s; /* Applying a smooth transition effect to the "Get Started" button */
+    font-size: 14px; /* Setting the font size of the "Get Started" button */
+    font-weight: 600; /* Setting the font weight of the "Get Started" button */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Adding a border to the "Get Started" button with some transparency */
+  }
+  
+  /* Styling the "Get Started" button when hovered or focused */
+  .navbar .getstarted:hover,
+  .navbar .getstarted:focus:hover {
+    color: #fcf9ea; /* Changing the color of the "Get Started" button when hovered or focused */
+    border-color: #fcf9ea; /* Changing the border color of the "Get Started" button when hovered or focused */
+  }
+  
+  /* Hiding the pseudo-element "before" for the "Get Started" button when it's hovered or the list item containing it is hovered */
+  .navbar .getstarted:before,
+  .navbar li:hover>.getstarted:before {
+    visibility: hidden; /* Hiding the pseudo-element when the "Get Started" button is hovered or the list item containing it is hovered */
+  }
+  .navbar .dropdown ul {
+    display: block;
+    position: absolute;
+    left: 24px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fcf9ea;
+    box-shadow: 0px 0px 30px rgb(255, 215, 210, 0.25);
+    transition: 0.3s;
+  }
+  
+  /* Styling the unordered list (ul) inside the dropdown menu */
+  .navbar .dropdown ul {
+    display: block; /* Displaying the list items as block elements */
+    position: absolute; /* Positioning the dropdown menu absolutely */
+    left: 24px; /* Setting the left position of the dropdown menu */
+    top: calc(100% + 30px); /* Setting the top position of the dropdown menu */
+    margin: 0; /* Removing margin from the dropdown menu */
+    padding: 10px 0; /* Adding padding to the top and bottom of the dropdown menu */
+    z-index: 99; /* Setting the z-index of the dropdown menu */
+    opacity: 0; /* Making the dropdown menu initially transparent */
+    visibility: hidden; /* Making the dropdown menu initially hidden */
+    background: #fcf9ea; /* Setting the background color of the dropdown menu */
+    box-shadow: 0px 0px 30px rgb(255, 215, 210, 0.25); /* Adding a box shadow to the dropdown menu */
+    transition: 0.3s; /* Applying a smooth transition effect to the dropdown menu */
+  }
+  
+  /* Styling the list items (li) inside the dropdown menu */
+  .navbar .dropdown ul li {
+    min-width: 200px; /* Setting a minimum width for the list items inside the dropdown menu */
+  }
+  
+  /* Styling the anchor links (a) inside the dropdown menu */
+  .navbar .dropdown ul a {
+    padding: 10px 20px; /* Adding padding to the top and bottom, and left and right of the links */
+    font-size: 14px; /* Setting the font size of the links */
+    color: #FFD7D2; /* Setting the color of the links */
+  }
+  
+  /* Styling the icons (i) inside the anchor links */
+  .navbar .dropdown ul a i {
+    font-size: 12px; /* Setting the font size of the icons */
+  }
+  
+  /* Styling the anchor links when hovered, or when the list item is hovered */
+  .navbar .dropdown ul a:hover,
+  .navbar .dropdown ul .active:hover,
+  .navbar .dropdown ul li:hover>a {
+    color: #FFD7D2; /* Changing the color of the links when hovered or when the list item is hovered */
+  }
+  
+  /* Styling the dropdown menu when its parent (dropdown) is hovered */
+  .navbar .dropdown:hover>ul {
+    opacity: 1; /* Making the dropdown menu visible when its parent is hovered */
+    top: 100%; /* Positioning the dropdown menu below its parent when hovered */
+    visibility: visible; /* Making the dropdown menu visible when its parent is hovered */
+  }
+  
+  /* Styling the nested dropdown menu */
+  .navbar .dropdown .dropdown ul {
+    top: 0; /* Positioning the nested dropdown menu at the top */
+    left: calc(100% - 30px); /* Positioning the nested dropdown menu to the right of its parent */
+    visibility: hidden; /* Making the nested dropdown menu hidden */
+  }
+  
+  /* Styling the nested dropdown menu when its parent (nested dropdown) is hovered */
+  .navbar .dropdown .dropdown:hover>ul {
+    opacity: 1; /* Making the nested dropdown menu visible when its parent is hovered */
+    top: 0; /* Positioning the nested dropdown menu at the top when its parent is hovered */
+    left: 100%; /* Positioning the nested dropdown menu to the right of its parent when its parent is hovered */
+    visibility: visible; /* Making the nested dropdown menu visible when its parent is hovered */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 1366px) {
+    .navbar .dropdown .dropdown ul {
+      left: -90%; /* Positioning the nested dropdown menu to the left when the screen width is less than or equal to 1366px */
+    }
+  
+    .navbar .dropdown .dropdown:hover>ul {
+      left: -100%; /* Positioning the nested dropdown menu completely to the left when its parent is hovered on smaller screens */
+    }
+  }
+/**
+* Mobile Navigation 
+*/
+
+/* Styles for the mobile navigation toggle button */
+.mobile-nav-toggle {
+    color: #fcf9ea; /* Setting the color of the mobile navigation toggle button */
+    font-size: 28px; /* Setting the font size of the mobile navigation toggle button */
+    cursor: pointer; /* Setting the cursor style to pointer, indicating it can be clicked */
+    display: none; /* Initially hiding the mobile navigation toggle button */
+    line-height: 0; /* Setting the line height of the mobile navigation toggle button */
+    transition: 0.5s; /* Applying a smooth transition effect to the toggle button */
+  }
+  
+  /* Media query for screens up to 991px */
+  @media (max-width: 991px) {
+    /* Display the mobile navigation toggle button when the screen width is 991px or less */
+    .mobile-nav-toggle {
+      display: block;
+    }
+  
+    /* Hide the unordered list (ul) in the navbar when the screen width is 991px or less */
+    .navbar ul {
+      display: none;
+    }
+  }
+  
+  /* Styles for the mobile version of the navbar */
+  .navbar-mobile {
+    position: fixed; /* Making the mobile navbar fixed */
+    overflow: hidden; /* Hiding any content that overflows from the mobile navbar */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0; /* Positioning the mobile navbar to cover the entire viewport */
+    background: rgb(255, 215, 210, 0.9); /* Setting the background color of the mobile navbar */
+    transition: 0.3s; /* Applying a smooth transition effect to the mobile navbar */
+    z-index: 999; /* Setting the z-index of the mobile navbar */
+  }
+  
+  /* Styles for the mobile navigation toggle button within the mobile navbar */
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute; /* Positioning the mobile navigation toggle button absolutely */
+    top: 15px; /* Setting the top position of the mobile navigation toggle button */
+    right: 15px; /* Setting the right position of the mobile navigation toggle button */
+  }
+  
+  /* Styles for the unordered list (ul) inside the mobile navbar */
+  .navbar-mobile ul {
+    display: block; /* Displaying the list items as block elements */
+    position: absolute; /* Positioning the mobile menu absolutely */
+    top: 55px; /* Setting the top position of the mobile menu */
+    right: 15px; /* Setting the right position of the mobile menu */
+    bottom: 15px; /* Setting the bottom position of the mobile menu */
+    left: 15px; /* Setting the left position of the mobile menu */
+    padding: 10px 0; /* Adding padding to the top and bottom of the mobile menu */
+    background-color: #fcf9ea; /* Setting the background color of the mobile menu */
+    overflow-y: auto; /* Adding vertical scrolling for the mobile menu if needed */
+    transition: 0.3s; /* Applying a smooth transition effect to the mobile menu */
+  }
+  
+  /* Styles for the list items (li) inside the mobile navbar */
+  .navbar-mobile>ul>li {
+    padding: 0; /* Removing padding from the list items inside the mobile menu */
+  }
+  
+  /* Styles for the anchor links (a) inside the mobile navbar */
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    padding: 10px 20px; /* Adding padding to the top and bottom, and left and right of the links */
+    font-size: 15px; /* Setting the font size of the links */
+    color: #FFD7D2; /* Setting the color of the links */
+  }
+  
+  /* Styles for the mobile navigation toggle button when hovered, or when the list item is hovered */
+  .navbar-mobile a:hover:before,
+  .navbar-mobile li:hover>a:before,
+  .navbar-mobile .active:before {
+    visibility: hidden; /* Hiding the line before the links when the mobile navigation toggle button is hovered, or when the list item is hovered */
+  }
+  
+  /* Styles for the anchor links when hovered, or when the list item is active */
+  .navbar-mobile a:hover,
+  .navbar-mobile .active,
+  .navbar-mobile li:hover>a {
+    color: #FFD7D2; /* Changing the color of the links when hovered or when the list item is active */
+  }
+  
+  /* Styles for the "Get Started" button in the mobile navbar */
+  .navbar-mobile .getstarted,
+  .navbar-mobile .getstarted:focus {
+    margin: 15px; /* Adding margin to the "Get Started" button */
+  }
+  
+  /* Styles for the dropdown menu in the mobile navbar */
+  .navbar-mobile .dropdown ul {
+    position: static; /* Changing the position of the dropdown menu to static */
+    display: none; /* Hiding the dropdown menu by default */
+    margin: 10px 20px; /* Adding margin to the dropdown menu */
+    padding: 10px 0; /* Adding padding to the top and bottom of the dropdown menu */
+    z-index: 99; /* Setting the z-index of the dropdown menu */
+    opacity: 1; /* Setting the opacity of the dropdown menu to 1 */
+    visibility: visible; /* Making the dropdown menu visible */
+    background: #fcf9ea; /* Setting the background color of the dropdown menu */
+    box-shadow: 0px 0px 30px rgb(255, 215, 210, 0.25); /* Adding a box shadow to the dropdown menu */
+  }
+  
+  /* Styles for the list items (li) inside the dropdown menu in the mobile navbar */
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px; /* Setting a minimum width for the list items inside the dropdown menu */
+  }
+  
+  /* Styles for the anchor links (a) inside the dropdown menu in the mobile navbar */
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px; /* Adding padding to the top and bottom, and left and right of the links */
+  }
+  
+  /* Styles for the icons (i) inside the anchor links in the dropdown menu in the mobile navbar */
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px; /* Setting the font size of the icons */
+  }
+  
+  /* Styles for the anchor links in the dropdown menu when hovered, or when the list item is hovered */
+  .navbar-mobile .dropdown ul a:hover,
+  .navbar-mobile .dropdown ul .active:hover,
+  .navbar-mobile .dropdown ul li:hover>a {
+    color: #FFD7D2; /* Changing the color of the links in the dropdown menu when hovered or when the list item is hovered */
+  }
+  
+  /* Styles for the nested dropdown menu */
+  .navbar-mobile .dropdown>.dropdown-active {
+    display: block; /* Displaying the nested dropdown menu when its parent is active (hovered or clicked) */
+  }
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+/* Styling for the hero section */
+#hero {
+    width: 100%; /* Setting the width of the hero section to cover the entire width of its container */
+    height: 100vh; /* Setting the height of the hero section to cover the entire viewport height */
+    background: url("../img/hero-bg.png") center center no-repeat; /* Setting the background image of the hero section */
+    background-size: cover; /* Ensuring the background image covers the entire hero section */
+  }
+  
+  /* Styling for the content container inside the hero section */
+  #hero .container,
+  #hero .container-fluid {
+    padding-top: 84px; /* Adding padding to the top of the content container */
+  }
+  
+  /* Styling for the main heading (h1) in the hero section */
+  #hero h1 {
+    margin: 0; /* Removing any margin from the main heading */
+    font-size: 72px; /* Setting the font size of the main heading */
+    font-weight: 700; /* Setting the font weight of the main heading to bold */
+    line-height: 64px; /* Setting the line height of the main heading */
+    color: #fffde2; /* Setting the text color of the main heading */
+    letter-spacing: 4px; /* Adding letter spacing to the main heading */
+    text-transform: uppercase; /* Transforming the text of the main heading to uppercase */
+  }
+  
+  /* Styling for the secondary heading (h2) in the hero section */
+  #hero h2 {
+    color: #FFF0E5; /* Setting the text color of the secondary heading */
+    margin: 10px 0 0 0; /* Setting the margins of the secondary heading */
+    font-size: 35px; /* Setting the font size of the secondary heading */
+    font-family: "Inconsolata", sans-serif; /* Applying a specific font family to the secondary heading */
+  }
+  
+  /* Styling for another secondary heading (h3) in the hero section */
+  #hero h3 {
+    color: #FFF0E5; /* Setting the text color of the second secondary heading */
+    margin: 10px 0 0 0; /* Setting the margins of the second secondary heading */
+    font-size: 35px; /* Setting the font size of the second secondary heading */
+  }
+  
+  /* Styling for the heading (h4) in the hero section */
+  #hero h4 {
+    color: #FFF0E5; /* Setting the text color of the heading */
+  }
+  
+  /* Styling for the "Get Started" button in the hero section */
+  #hero .btn-get-started {
+    font-family: "Poppins", sans-serif; /* Applying a specific font family to the "Get Started" button */
+    font-weight: 500; /* Setting the font weight of the "Get Started" button */
+    font-size: 16px; /* Setting the font size of the "Get Started" button */
+    letter-spacing: 1px; /* Adding letter spacing to the "Get Started" button */
+    display: inline-block; /* Displaying the "Get Started" button as an inline block element */
+    padding: 10px 28px; /* Adding padding to the "Get Started" button */
+    border-radius: 5px; /* Adding border radius to the "Get Started" button */
+    transition: 0.5s; /* Applying a smooth transition effect to the "Get Started" button */
+    margin-top: 30px; /* Adding margin to the top of the "Get Started" button */
+    background-color: rgba(0,0,0,0); /* Setting the background color of the "Get Started" button to transparent */
+    color: #fffde2; /* Setting the text color of the "Get Started" button */
+    border: 2px solid #fffde2; /* Adding a border to the "Get Started" button */
+  }
+  
+  /* Styling for the "Get Started" button when hovered */
+  #hero .btn-get-started:hover {
+    background: #E96D88; /* Changing the background color of the "Get Started" button when hovered */
+    color: #fffde2; /* Changing the text color of the "Get Started" button when hovered */
+  }
+  
+  /* Styling for the animated elements in the hero section */
+  #hero .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both; /* Applying an animation to the elements with the "animated" class */
+  }
+  
+  /* Media query for screens with a minimum width of 1200px */
+  @media (min-width: 1200px) {
+    #hero {
+      background-attachment: fixed; /* Fixing the background image of the hero section for larger screens */
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 991px */
+  @media (max-width: 991px) {
+    #hero {
+      text-align: center; /* Centering the content inside the hero section for smaller screens */
+    }
+  
+    #hero .container,
+    #hero .container-fluid {
+      padding-top: 68px; /* Adjusting the padding of the content container for smaller screens */
+    }
+  
+    #hero .animated {
+      -webkit-animation: none;
+      animation: none; /* Disabling the animation for smaller screens */
+    }
+  
+    #hero .hero-img {
+      text-align: center; /* Centering the hero image for smaller screens */
+    }
+  
+    #hero .hero-img img {
+      width: 50%; /* Setting the width of the hero image to 50% for smaller screens */
+    }
+  }
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+/* ... (previous styles for the hero section) ... */
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+    /* Adjusting the font size and line height of the main heading (h1) for smaller screens */
+    #hero h1 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+  
+    /* Adjusting the font size and line height of the secondary heading (h2) for smaller screens */
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  
+    /* Adjusting the width of the hero image for smaller screens */
+    #hero .hero-img img {
+      width: 60%;
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 575px */
+  @media (max-width: 575px) {
+    /* Further adjusting the width of the hero image for smaller screens */
+    #hero .hero-img img {
+      width: 80%;
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 575px or a maximum height of 600px */
+  @media (max-width: 575px), (max-height: 600px) {
+    /* Making the hero section height auto for better display on small screens */
+    #hero {
+      height: auto;
+    }
+  }
+  
+  /* Keyframes for the "up-down" animation */
+  @-webkit-keyframes up-down {
+    0% {
+      transform: translateY(10px); /* Starting position of the animation */
+    }
+  
+    100% {
+      transform: translateY(-10px); /* Ending position of the animation */
+    }
+  }
+  
+  @keyframes up-down {
+    0% {
+      transform: translateY(10px); /* Starting position of the animation */
+    }
+  
+    100% {
+      transform: translateY(-10px); /* Ending position of the animation */
+    }
+  }
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+/* ... (previous styles for the hero section) ... */
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+    /* Adjusting the font size and line height of the main heading (h1) for smaller screens */
+    #hero h1 {
+      font-size: 26px;
+      line-height: 36px;
+    }
+  
+    /* Adjusting the font size and line height of the secondary heading (h2) for smaller screens */
+    #hero h2 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  
+    /* Adjusting the width of the hero image for smaller screens */
+    #hero .hero-img img {
+      width: 60%;
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 575px */
+  @media (max-width: 575px) {
+    /* Further adjusting the width of the hero image for smaller screens */
+    #hero .hero-img img {
+      width: 80%;
+    }
+  }
+  
+  /* Media query for screens with a maximum width of 575px or a maximum height of 600px */
+  @media (max-width: 575px), (max-height: 600px) {
+    /* Making the hero section height auto for better display on small screens */
+    #hero {
+      height: auto;
+    }
+  }
+  
+  /* Keyframes for the "up-down" animation */
+  @-webkit-keyframes up-down {
+    0% {
+      transform: translateY(10px); /* Starting position of the animation */
+    }
+  
+    100% {
+      transform: translateY(-10px); /* Ending position of the animation */
+    }
+  }
+  
+  @keyframes up-down {
+    0% {
+      transform: translateY(10px); /* Starting position of the animation */
+    }
+  
+    100% {
+      transform: translateY(-10px); /* Ending position of the animation */
+    }
+  }
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+
+/* Styling for all <section> elements */
+section {
+    padding: 100px 100px 100px 100px; /* Setting padding for the top, right, bottom, and left of each section */
+    overflow: hidden; /* Preventing content from overflowing outside the section */
+  }
+  
+  /* Styling for sections with a white background color */
+  .section-bg {
+    background-color: #fffde2; /* Setting the background color to a light shade of yellow (#fffde2) */
+  }
+  
+  /* Styling for the title within each section */
+  .section-title {
+    text-align: center; /* Centering the title text */
+    padding-bottom: 30px; /* Adding some spacing below the title */
+  }
+  
+  /* Styling for the main heading (h2) within each section title */
+  .section-title h2 {
+    font-size: 32px; /* Setting the font size to 32 pixels */
+    font-weight: bold; /* Making the text bold */
+    text-transform: uppercase; /* Transforming the text to uppercase */
+    margin-bottom: 20px; /* Adding some spacing below the heading */
+    padding-bottom: 20px; /* Adding a bottom padding for the heading */
+    position: relative; /* Setting the position to relative to position the pseudo-element */
+  }
+  
+  /* Adding an underline effect using a pseudo-element (::after) for the main heading (h2) */
+  .section-title h2::after {
+    content: ""; /* Adding content to the pseudo-element (required for it to appear) */
+    position: absolute; /* Positioning the pseudo-element absolutely relative to the h2 */
+    display: block; /* Making the pseudo-element a block-level element */
+    width: 50px; /* Setting the width of the underline to 50 pixels */
+    height: 3px; /* Setting the height of the underline to 3 pixels */
+    background: #fff; /* Setting the color of the underline to white (#fff) */
+    bottom: 0; /* Positioning the underline at the bottom of the h2 */
+    left: calc(50% - 25px); /* Centering the underline horizontally by setting left to half of its width */
+  }
+  
+  /* Styling for paragraphs within each section title */
+  .section-title p {
+    margin-bottom: 0; /* Removing any bottom margin for paragraphs within the section title */
+  }
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+
+/* Styling for the About section */
+.about {
+    padding: 120px 0; /* Setting the top and bottom padding to 120 pixels and no padding on the right and left */
+    background: #ffffff; /* Setting the background color to white (#ffffff) */
+  }
+  
+  /* Styling for the headings (h3) within the content of the About section */
+  .about .content h3 {
+    font-weight: 600; /* Making the heading bold (600 weight) */
+    font-size: 32px; /* Setting the font size to 32 pixels */
+    color: #ffffff; /* Setting the text color to white (#ffffff) */
+  }
+  
+  /* Styling for unordered lists (ul) within the content of the About section */
+  .about .content ul {
+    list-style: none; /* Removing the default bullet points from the list */
+    padding: 0; /* Removing any padding from the list */
+  }
+  
+  /* Styling for list items (li) within the content of the About section */
+  .about .content ul li {
+    padding-bottom: 10px; /* Adding some spacing below each list item */
+  }
+  
+  /* Styling for icons (i) within the content of the About section */
+  .about .content ul i {
+    font-size: 20px; /* Setting the font size of the icons to 20 pixels */
+    padding-right: 4px; /* Adding some spacing to the right of the icons */
+    color: #ffffff; /* Setting the color of the icons to white (#ffffff) */
+  }
+  
+  /* Styling for the last paragraph (p) within the content of the About section */
+  .about .content p:last-child {
+    margin-bottom: 0; /* Removing any bottom margin from the last paragraph */
+  }
+  
+  /* Styling for the "Read More" button within the content of the About section */
+  .about .content .read-more {
+    font-family: "Poppins", sans-serif; /* Setting the font family for the button */
+    font-weight: 500; /* Setting the font weight to 500 */
+    font-size: 16px; /* Setting the font size to 16 pixels */
+    letter-spacing: 1px; /* Adding letter spacing to the button text */
+    display: inline-block; /* Displaying the button as an inline block */
+    padding: 10px 50px 10px 28px; /* Adding padding to the button */
+    border-radius: 5px; /* Applying a border radius of 5 pixels to the button */
+    transition: 0.5s; /* Adding a smooth transition effect */
+    color: #ffffff; /* Setting the text color to white (#ffffff) */
+    background: linear-gradient(45deg, #5846f9 0%, #7b27d8 100%); /* Applying a linear gradient background to the button */
+    position: relative; /* Setting the position to relative to position the icon */
+  }
+  
+  /* Styling for the "Read More" button when hovered */
+  .about .content .read-more:hover {
+    background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%); /* Applying a different linear gradient background when hovered */
+  }
+  
+  /* Styling for the icon (i) within the "Read More" button */
+  .about .content .read-more i {
+    font-size: 22px; /* Setting the font size of the icon to 22 pixels */
+    position: absolute; /* Positioning the icon absolutely within the button */
+    right: 20px; /* Positioning the icon 20 pixels from the right */
+    top: 12px; /* Positioning the icon 12 pixels from the top */
+  }
+/* Styling for the calendar picker indicator of an input with type="date" (currently commented out) */
+/*
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #fffde2;
+}
+*/
+
+/* Styling for the calendar picker indicator of an input with type="time" */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    /* CSS filter properties applied to the calendar picker indicator */
+    filter: invert(95%) sepia(4%) saturate(2383%) hue-rotate(328deg) brightness(110%) contrast(105%);
+  }
+  
+  /* Styling for the file upload button of a custom file input */
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden; /* Hiding the default file upload button provided by the browser */
+  }
+  
+  .custom-file-input::before {
+    /* Styling for the pseudo-element (::before) of the custom file input */
+    background: #FFD7D2; /* Setting the background color to #FFD7D2 */
+    color: #ffffff; /* Setting the text color to white (#ffffff) */
+    border: 1px solid #FFD7D2; /* Adding a border with color #FFD7D2 */
+    outline: none; /* Removing any outline */
+    white-space: nowrap; /* Preventing line breaks in the content */
+    -webkit-user-select: none; /* Disabling user selection */
+    cursor: pointer; /* Changing the cursor to a pointer on hover */
+    padding: 15px 30px 15px 30px; /* Adding padding to the button */
+    text-align: left; /* Aligning the text to the left */
+  }
+  
+  .custom-file-input:hover::before {
+    /* Styling for the pseudo-element (::before) of the custom file input on hover */
+    border-color: #ffffff; /* Changing the border color on hover */
+    background: #ffffff; /* Changing the background color on hover */
+    color: #FFD7D2; /* Changing the text color on hover */
+  }
+  
+  .custom-file-input:active::before {
+    /* Styling for the pseudo-element (::before) of the custom file input when active (clicked) */
+    background: #ffffff; /* Changing the background color when active */
+    color: #FFD7D2; /* Changing the text color when active */
+  }
+  
+  /* Styling for a div element with the class "block" */
+  div.block {
+    text-align: justify; /* Justifying the text within the div */
+    background-color: #FFF0E5; /* Setting the background color to #FFF0E5 */
+    border-radius: 4px; /* Adding border radius to create rounded corners */
+    font-size: 16px; /* Setting the font size to 16 pixels */
+    padding: 15px; /* Adding padding inside the div */
+    margin: 5px; /* Adding margin around the div */
+  }
+/* Styling for the chatbox container */
+#chatbox {
+    background-color: #FFF0E5; /* Setting the background color to #FFF0E5 */
+    margin-left: auto; /* Centering the chatbox horizontally */
+    margin-right: auto; /* Centering the chatbox horizontally */
+    width: 80%; /* Setting the width to 80% of the parent container */
+    min-height: 70px; /* Setting the minimum height to 70 pixels */
+    margin-top: 60px; /* Adding top margin of 60 pixels */
+    padding: 10px; /* Adding padding inside the chatbox */
+  }
+  
+  /* Styling for the user input container */
+  #userInput {
+    margin-left: auto; /* Centering the user input horizontally */
+    margin-right: auto; /* Centering the user input horizontally */
+    width: 40%; /* Setting the width to 40% of the parent container */
+    margin-top: 60px; /* Adding top margin of 60 pixels */
+  }
+  
+  /* Styling for the text input field */
+  #textInput {
+    width: 87%; /* Setting the width of the text input field to 87% */
+    border: none; /* Removing the border */
+    border-bottom: 3px solid #009688; /* Adding a 3px bottom border with color #009688 */
+    font-family: monospace; /* Setting the font family to monospace */
+    font-size: 17px; /* Setting the font size to 17 pixels */
+  }
+  
+  /* Styling for the button input field */
+  #buttonInput {
+    padding: 3px; /* Adding padding to the button input */
+    font-family: monospace; /* Setting the font family to monospace */
+    font-size: 17px; /* Setting the font size to 17 pixels */
+  }
+  
+  /* Styling for the user text (messages) */
+  .userText {
+    color: white; /* Setting the text color to white */
+    font-size: 17px; /* Setting the font size to 17 pixels */
+    text-align: right !important; /* Aligning the text to the right */
+    line-height: 30px; /* Setting the line height to 30 pixels */
+    margin: 10px; /* Adding margin around the user text */
+    border-radius: 10px; /* Adding border radius to create rounded corners */
+  }
+  
+  /* Styling for the span inside user text */
+  .userText span {
+    background-color: #FAD57E; /* Setting the background color to #FAD57E */
+    padding: 10px; /* Adding padding inside the span */
+    border-radius: 10px; /* Adding border radius to create rounded corners */
+  }
+  
+  /* Styling for the bot text (messages) */
+  .botText {
+    background-color: #e96d88; /* Setting the background color to #e96d88 */
+    color: white; /* Setting the text color to white */
+    font-size: 16px; /* Setting the font size to 16 pixels */
+    text-align: left; /* Aligning the text to the left */
+    line-height: 30px; /* Setting the line height to 30 pixels */
+    margin: 10px; /* Adding margin around the bot text */
+    border-radius: 10px; /* Adding border radius to create rounded corners */
+  }
+  
+  /* Styling for the span inside bot text */
+  .botText span {
+    padding: 10px; /* Adding padding inside the span */
+    border-radius: 10px; /* Adding border radius to create rounded corners */
+  }
+  
+  /* Styling for the tidbit (tooltip-like element) */
+  #tidbit {
+    position: absolute; /* Positioning the tidbit element absolutely */
+    bottom: 0; /* Aligning the tidbit to the bottom of its container */
+    right: 0; /* Aligning the tidbit to the right of its container */
+    width: 300px; /* Setting the width of the tidbit element to 300 pixels */
+  }
+          
